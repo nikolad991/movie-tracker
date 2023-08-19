@@ -2,7 +2,7 @@ const options = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MGM1YmIyYWY2M2U1ZjA3MDJkZGYwMDlkZGNiMTQ3OSIsInN1YiI6IjY0ZGY2ZjBjZDEwMGI2MTRiMTVhY2NiMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PtyT3tlwlGzy-tEpOGwhPte5ZQ8DTF7z5gsK90XZDSw`
+        Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`
     }
 };
 export const getPosterUrl = (poster_path) => {
