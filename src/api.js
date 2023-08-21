@@ -1,3 +1,4 @@
+const baseUrl = "https://api.themoviedb.org/3";
 const options = {
     method: 'GET',
     headers: {
@@ -9,7 +10,7 @@ export const getPosterUrl = (poster_path) => {
     return `https://image.tmdb.org/t/p/w500${poster_path}`
 }
 export const getTrendingMovies = () => {
-    return fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
+    return fetch(`${baseUrl}/trending/movie/week?language=en-US`, options)
         .then(response => response.json())
         .then(response => response)
         .catch(err => console.error(err));
