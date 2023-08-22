@@ -4,7 +4,7 @@ import { BsPlayFill } from "react-icons/bs";
 const MovieCard = ({ movie }) => {
   return (
     <div
-      className="flex flex-col w-64 h-[550px] mb-12  font-dosis bg-zinc-900 rounded-md text-white justify-between"
+      className="flex flex-col w-48 h-[420px] mb-12  font-dosis bg-zinc-900 rounded-md text-white justify-between transition-all duration-500  hover:bg-zinc-800"
       key={movie.id}
     >
       <div className="relative rounded-md">

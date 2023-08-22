@@ -1,9 +1,12 @@
-import Trending from "./components/Trending";
+import { Outlet } from "react-router-dom";
+
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="flex  bg-neutral-600">
-      <Trending />
+    <div className="bg-neutral-600">
+      <NavBar />
+      <Outlet />
     </div>
   );
 }
