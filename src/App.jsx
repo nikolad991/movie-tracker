@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="bg-neutral-600">
+    <div className="bg-neutral-600 min-h-screen">
       <NavBar />
       <Outlet />
     </div>

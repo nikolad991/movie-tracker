@@ -1,6 +1,7 @@
 import React from "react";
 import { getPosterUrl } from "../api";
 import { BsPlayFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const MovieCard = ({ movie }) => {
   return (
     <div
@@ -27,7 +28,7 @@ const MovieCard = ({ movie }) => {
         </div>
       </div>
       <div className=" px-4 mt-6 flex justify-between items-center  uppercase font-semibold  ">
-        <span>{movie.title}</span>
+        <Link to={`/movie/${movie.id}`}><span>{movie.title}</span></Link>
         <span className="text-xs px-2 ">{movie.release_date.slice(0, 4)}</span>
       </div>
       <div className="flex items-center justify-center gap-1 py-2">

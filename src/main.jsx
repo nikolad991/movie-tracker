@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       {
-        path: "/search/:keywords",
+        path: "/search/:query",
         element: <SearchResults />,
       },
       {
