@@ -7,7 +7,7 @@ const SearchResults = () => {
   const [moviesData, setMoviesData] = useState([]);
   const params = useParams();
   useEffect(() => {
-    getMoviesByName(params.query).then((response) =>
+    getMoviesByName(params.query, 1).then((response) =>
       setMoviesData(response.results)
     );
   }, []);
@@ -17,7 +17,7 @@ const SearchResults = () => {
         Result for "{params.query}"
       </div>
       {moviesData.length > 0 ? (
-        <div className="flex flex-wrap gap-10">
+        <div className="flex flex-wrap gap-5 justify-center">
           {moviesData.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}

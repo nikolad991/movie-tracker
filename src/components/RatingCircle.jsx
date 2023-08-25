@@ -29,7 +29,7 @@ const RatingCircle = ({ rating }) => {
       }}
     >
       <span className="font-semibold text-sm" style={{ color: color }}>
-        {rating.toFixed(1)}
+        {rating?.toFixed(1)}
       </span>
     </div>
   );

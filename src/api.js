@@ -26,12 +26,17 @@ const getPopularMovies = () => {
         .catch(err => console.error(err));
 
 }
-const getMoviesByName = (query) => {
-    return fetch(`${baseUrl}/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options)
+const getMoviesByName = (query, page) => {
+    return fetch(`${baseUrl}/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`, options)
+        .then(response => response.json())
+        .then(response => response)
+        .catch(err => console.error(err));
+}
+const getMovieById = (id) => {
+    return fetch(`${baseUrl}/movie/${id}?language=en-US`, options)
         .then(response => response.json())
         .then(response => response)
         .catch(err => console.error(err));
 }
 
-
-export { getTrendingMovies, getPopularMovies, getMoviesByName, getPosterUrl, getBackdropUrl }
+export { getTrendingMovies, getPopularMovies, getMoviesByName, getMovieById, getPosterUrl, getBackdropUrl }
