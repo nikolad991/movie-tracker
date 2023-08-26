@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getBackdropUrl, getMovieById, getPosterUrl } from "../api";
 import ReactPlayer from "react-player";
 import RatingCircle from "../components/RatingCircle";
+import PosterPlaceholder from "../assets/poster_placeholder.png";
 
 const MovieDetails = () => {
   const params = useParams();
@@ -39,7 +40,14 @@ const MovieDetails = () => {
             </div>
             <div className="flex gap-2">
               <div className="w-60">
-                <img src={getPosterUrl(movie.poster_path)} alt="" />
+                <img
+                  src={
+                    movie.poster_path
+                      ? getPosterUrl(movie.poster_path)
+                      : PosterPlaceholder
+                  }
+                  alt=""
+                />
               </div>
               <div>
                 <ReactPlayer

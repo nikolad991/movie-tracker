@@ -17,7 +17,7 @@ const RatingCircle = ({ rating }) => {
     else if (rating >= 7 && rating < 8) setColor(colors.good);
     else if (rating >= 8 && rating < 9) setColor(colors.great);
     else if (rating >= 9) setColor(colors.masterpiece);
-  }, []);
+  }, [rating]);
 
   return (
     <div

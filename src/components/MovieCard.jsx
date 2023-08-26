@@ -3,6 +3,7 @@ import { getPosterUrl } from "../api";
 import { BsPlayFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import RatingCircle from "./RatingCircle";
+import PosterPlaceholder from "../assets/poster_placeholder.png";
 const MovieCard = ({ movie }) => {
   return (
     <div
@@ -12,7 +13,11 @@ const MovieCard = ({ movie }) => {
       <div className="relative rounded-md">
         <img
           className="rounded-md transition-all duration-500 hover:opacity-60 "
-          src={getPosterUrl(movie.poster_path)}
+          src={
+            movie.poster_path
+              ? getPosterUrl(movie.poster_path)
+              : PosterPlaceholder
+          }
           alt=""
         />
         {/* <div
@@ -35,7 +40,9 @@ const MovieCard = ({ movie }) => {
         <Link to={`/movie/${movie.id}`}>
           <span>{movie.title}</span>
         </Link>
-        <span className="text-xs px-2 ">{movie.release_date.slice(0, 4)}</span>
+        <span className="text-xs px-2 ">
+          {movie?.release_date?.slice(0, 4)}
+        </span>
       </div>
       <div className="flex items-center justify-center gap-1 py-2">
         <span>
