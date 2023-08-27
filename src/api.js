@@ -7,10 +7,10 @@ const options = {
     }
 };
 const getPosterUrl = (poster_path) => {
-    return `https://image.tmdb.org/t/p/w500${poster_path}`
+    return `https://image.tmdb.org/t/p/w500/${poster_path}`
 }
 const getBackdropUrl = (backdrop_path) => {
-    return `https://image.tmdb.org/t/p/w780${backdrop_path}`
+    return `https://image.tmdb.org/t/p/w780/${backdrop_path}`
 }
 const getTrendingMovies = (period) => {
     return fetch(`${baseUrl}/trending/movie/${period}?language=en-US`, options)
@@ -38,5 +38,19 @@ const getMovieById = (id) => {
         .then(response => response)
         .catch(err => console.error(err));
 }
-
-export { getTrendingMovies, getPopularMovies, getMoviesByName, getMovieById, getPosterUrl, getBackdropUrl }
+const getVideos = (id) => {
+    return fetch(`${baseUrl}/movie/${id}/videos?language=en-US`, options)
+        .then(response => response.json())
+        .then(response => response)
+        .catch(err => console.error(err));
+}
+const getYoutubeUrl = (key) => {
+    return `https://www.youtube.com/watch?v=${key}`
+}
+const getImages = (id) => {
+    return fetch(`${baseUrl}/movie/${id}/images`, options)
+        .then(response => response.json())
+        .then(response => response)
+        .catch(err => console.error(err));
+}
+export { getTrendingMovies, getPopularMovies, getMoviesByName, getMovieById, getPosterUrl, getBackdropUrl, getVideos, getYoutubeUrl, getImages }

@@ -74,7 +74,7 @@ const Trending = () => {
         }}
         slidesPerView={1}
         spaceBetween={10}
-        // Responsive breakpoints
+      
         breakpoints={breakpoints}
         modules={[Scrollbar, Autoplay]}
       >
