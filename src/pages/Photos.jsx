@@ -13,34 +13,48 @@ const Photos = () => {
     getImages(params.id).then((response) => setImages(response));
   }, [params.id]);
   return (
-    <div className="h-screen">
-      <div className="h-1/4 md:h-1/2 lg:h-2/3 aspect-[16/9] mx-auto">
-        {images.backdrops && (
+    images.backdrops && (
+      <div
+        className="h-screen bg-cover bg-blend-overlay bg-zinc-900 transition-all duration-1000"
+        style={{
+          backgroundImage: `url(${getBackdropUrl(
+            images?.backdrops[imageIndex]?.file_path
+          )})`,
+        }}
+      >
+        <div className="h-1/4 md:h-1/2 lg:h-2/3 aspect-[16/9] mx-auto">
           <img
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover "
             src={getBackdropUrl(images?.backdrops[imageIndex]?.file_path)}
             alt=""
           />
-        )}
+        </div>
+        <div className="flex flex-wrap">
+          <Swiper
+            modules={[Scrollbar]}
+            slidesPerView={12}
+            scrollbar={{
+              hide: false,
+            }}
+          >
+            {images?.backdrops?.map((photo, index) => (
+              <SwiperSlide key={index} className="py-7">
+                <div
+                  className="h-20 aspect-[16/9] "
+                  onClick={() => setImageIndex(index)}
+                >
+                  <img
+                    className="h-full w-full object-cover"
+                    src={getBackdropUrl(photo.file_path)}
+                    alt=""
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
-      <div className="flex flex-wrap">
-        <Swiper modules={[Scrollbar]} slidesPerView={12}  scrollbar={{
-          hide: false,
-        }}>
-          {images?.backdrops?.map((photo, index) => (
-            <SwiperSlide key={index} className="py-7">
-              <div className="h-20 aspect-[16/9] " onClick={() => setImageIndex(index)}>
-                <img
-                  className="h-full w-full object-cover"
-                  src={getBackdropUrl(photo.file_path)}
-                  alt=""
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
+    )
   );
 };
 

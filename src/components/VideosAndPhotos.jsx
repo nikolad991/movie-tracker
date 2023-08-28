@@ -36,7 +36,7 @@ export const VideosAndPhotos = ({ movieId }) => {
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <div className="flex flex-col gap-1 p-14 border items-center uppercase bg-gradient-to-t from-neutral-600 to-neutral-800 font-semibold hover:to-neutral-900"  onClick={() => {
+        <div className="flex flex-col gap-1 p-14 border items-center uppercase bg-gradient-to-t from-neutral-600 to-neutral-800 font-semibold hover:to-neutral-900 cursor-pointer"  onClick={() => {
             navigate(`/videos/${movieId}`);
           }}>
           <span className="text-4xl">
