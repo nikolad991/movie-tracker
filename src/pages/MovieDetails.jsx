@@ -5,7 +5,7 @@ import ReactPlayer from "react-player";
 import RatingCircle from "../components/RatingCircle";
 import PosterPlaceholder from "../assets/poster_placeholder.png";
 import { VideosAndPhotos } from "../components/VideosAndPhotos";
-
+import Cast from "../components/Cast";
 
 const MovieDetails = () => {
   const params = useParams();
@@ -15,7 +15,7 @@ const MovieDetails = () => {
   }, []);
 
   return (
-    <section className="h-screen">
+    <section className="min-h-screen">
       <div
         style={{
           backgroundImage: `url(${getBackdropUrl(movie.backdrop_path)})`,
@@ -42,7 +42,8 @@ const MovieDetails = () => {
             </div>
             <div className="flex gap-2">
               <div className="w-60">
-                <img className="h-full w-full"
+                <img
+                  className="h-full w-full"
                   src={
                     movie.poster_path
                       ? getPosterUrl(movie.poster_path)
@@ -71,6 +72,7 @@ const MovieDetails = () => {
               ))}
             </div>
             <div>{movie.overview}</div>
+            <Cast movieId={params.id} />
           </div>
         </div>
       </div>
