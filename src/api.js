@@ -59,4 +59,10 @@ const getCast = (id) => {
         .then(response => response)
         .catch(err => console.error(err));
 }
-export { getTrendingMovies, getPopularMovies, getMoviesByName, getMovieById, getPosterUrl, getBackdropUrl, getVideos, getYoutubeUrl, getImages, getCast }
+const getReviews = (id) => {
+    return fetch(`${baseUrl}/movie/${id}/reviews?language=en-US`, options)
+        .then(response => response.json())
+        .then(response => response)
+        .catch(err => console.error(err));
+}
+export { getTrendingMovies, getPopularMovies, getMoviesByName, getMovieById, getPosterUrl, getBackdropUrl, getVideos, getYoutubeUrl, getImages, getCast, getReviews }

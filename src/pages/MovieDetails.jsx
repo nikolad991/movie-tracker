@@ -6,6 +6,7 @@ import RatingCircle from "../components/RatingCircle";
 import PosterPlaceholder from "../assets/poster_placeholder.png";
 import { VideosAndPhotos } from "../components/VideosAndPhotos";
 import Cast from "../components/Cast";
+import Review from "../components/Review";
 
 const MovieDetails = () => {
   const params = useParams();
@@ -24,26 +25,35 @@ const MovieDetails = () => {
       >
         <div className="bg-gradient-to-b from-transparent	to-neutral-900 text-white h-full">
           <div className="w-5/6 mx-auto py-10">
-            <div className="py-6 flex items-center gap-20">
-              <div>
-                <div className="text-3xl font-semibold">
+            <div className="py-6 flex flex-col md:flex-row items-center gap-5 ">
+              <div className="flex flex-col gap-3">
+                <div className="text-3xl font-semibold font-dosis">
                   {movie.original_title}
                 </div>
-                <div className="font-semibold">{movie.tagline}</div>
+                <div className="font-semibold font-dosis">{movie.tagline}</div>
                 <div className="flex gap-2 ">
-                  <span>{movie.status}</span>
-                  <span>{movie.release_date}</span>
-                  <span>{movie.runtime} minutes</span>
+                  <span className="border rounded-3xl px-2 py-1 text-sm">
+                    {movie.status}
+                  </span>
+                  <span className="border rounded-3xl px-2 py-1 text-sm">
+                    {movie.release_date}
+                  </span>
+                  <span className="border rounded-3xl px-2 py-1 text-sm">
+                    {movie.runtime} minutes
+                  </span>
                 </div>
               </div>
-              <div className="w-20 h-20">
-                <RatingCircle rating={movie.vote_average} />
+              <div className="flex items-center gap-3 p-2 border border-neutral-800 rounded-md bg-neutral-800 bg-opacity-50">
+                <div className="w-16 h-16">
+                  <RatingCircle rating={movie.vote_average} />
+                </div>
+                <span className="text-xs">{movie.vote_count} users voted</span>
               </div>
             </div>
-            <div className="flex gap-2">
-              <div className="w-60">
+            <div className="flex flex-col xl:flex-row gap-2  lg:h-[450px]">
+              <div className="">
                 <img
-                  className="h-full w-full"
+                  className="h-full w-full "
                   src={
                     movie.poster_path
                       ? getPosterUrl(movie.poster_path)
@@ -53,10 +63,6 @@ const MovieDetails = () => {
                 />
               </div>
               <div>
-                {/* <ReactPlayer
-                  light
-                  url="https://www.youtube.com/watch?v=uYPbbksJxIg"
-                /> */}
                 <VideosAndPhotos movieId={params.id} />
               </div>
             </div>
@@ -73,6 +79,7 @@ const MovieDetails = () => {
             </div>
             <div>{movie.overview}</div>
             <Cast movieId={params.id} />
+            <Review movieId={params.id} />
           </div>
         </div>
       </div>

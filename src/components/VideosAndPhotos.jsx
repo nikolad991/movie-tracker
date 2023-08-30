@@ -22,11 +22,14 @@ export const VideosAndPhotos = ({ movieId }) => {
   }, [movieId]);
 
   return (
-    <div className="flex gap-1">
-      <div>
-        {/* { trailers[Math.floor(Math.random() * trailers?.length)]?.name} */}
+    <div className="flex flex-col xl:flex-row h-[450px] gap-1 ">
+      <div className="relative pt-[56.25%] xl:w-[30vw]">
+      
         {trailers && (
           <ReactPlayer
+            style={{ position: "absolute", top: 0, left: 0 }}
+            width={"100%"}
+            height={"100%"}
             light
             controls
             url={getYoutubeUrl(
@@ -35,17 +38,20 @@ export const VideosAndPhotos = ({ movieId }) => {
           />
         )}
       </div>
-      <div className="flex flex-col gap-1">
-        <div className="flex flex-col gap-1 p-14 border items-center uppercase bg-gradient-to-t from-neutral-600 to-neutral-800 font-semibold hover:to-neutral-900 cursor-pointer"  onClick={() => {
+      <div className="flex xl:flex-col gap-1">
+        <div
+          className="flex xl:flex-col flex-1 gap-1 xl:p-14 border items-center justify-center uppercase bg-gradient-to-t from-neutral-600 to-neutral-800 font-semibold hover:to-neutral-900 cursor-pointer"
+          onClick={() => {
             navigate(`/videos/${movieId}`);
-          }}>
+          }}
+        >
           <span className="text-4xl">
             <MdVideoLibrary />
           </span>
           <span>{videos?.results?.length} videos</span>
         </div>
         <div
-          className="flex flex-col gap-1 p-14 border items-center uppercase bg-gradient-to-t from-neutral-600 to-neutral-800 font-semibold hover:to-neutral-900 cursor-pointer"
+          className="flex xl:flex-col flex-1 gap-1 xl:p-14 border items-center justify-center uppercase bg-gradient-to-t from-neutral-600 to-neutral-800 font-semibold hover:to-neutral-900 cursor-pointer"
           onClick={() => {
             navigate(`/photos/${movieId}`);
           }}
@@ -54,19 +60,8 @@ export const VideosAndPhotos = ({ movieId }) => {
             <IoMdPhotos />
           </span>
           <span>{images?.backdrops?.length} photos</span>
-          {/* <span>{images?.posters?.length} posters</span>
-          <span>{images?.logos?.length} logos</span> */}
         </div>
       </div>
-      {/* {trailers?.length}
-      {trailers?.map((video) => (
-        <div className="flex gap-3 border" key={video.id}>
-      
-          <span>{video.name}</span>
-          <span className="text-red-500">{video.type}</span>
-          <span>{video.key}</span>
-        </div>
-      ))} */}
     </div>
   );
 };

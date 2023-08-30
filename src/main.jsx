@@ -8,6 +8,7 @@ import MovieDetails from "./pages/MovieDetails.jsx";
 import Home from "./pages/Home.jsx";
 import Photos from "./pages/Photos.jsx";
 import Videos from "./pages/Videos.jsx";
+import Reviews from "./pages/Reviews.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/videos/:id",
         element: <Videos />,
+      },
+      {
+        path: "/reviews/:id",
+        element: <Reviews />,
       },
     ],
   },
