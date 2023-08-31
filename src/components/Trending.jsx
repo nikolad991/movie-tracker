@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getTrendingMovies } from "../api";
-import MovieCard from "./MovieCard";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar,Autoplay } from "swiper/modules";
-import "swiper/css";
-
-import "swiper/css/scrollbar";
+import MovieSwiper from "./MovieSwiper";
 const Trending = () => {
   const [period, setPeriod] = useState("week");
   const [moviesData, setMoviesData] = useState([]);
@@ -17,28 +12,8 @@ const Trending = () => {
   const handlePeriodChange = (e) => {
     setPeriod(e.target.name);
   };
-  const breakpoints = {
-    640: {
-      slidesPerView: 3,
-      spaceBetween: 10,
-    },
-
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 20,
-    },
-
-    1536: {
-      slidesPerView: 6,
-      spaceBetween: 30,
-    },
-    1875: {
-      slidesPerView: 8,
-      spaceBetween: 30,
-    },
-  };
   return (
-    <div className=" px-5 py-10 w-5/6 mx-auto">
+    <div className="px-5 py-10 w-5/6 mx-auto">
       <div>
         <h1 className="text-3xl font-dosis py-4 text-whwite">
           Trending Movies
@@ -64,26 +39,7 @@ const Trending = () => {
           </button>
         </div>
       </div>
-
-      <Swiper
-        scrollbar={{
-          hide: false,
-        }}
-        autoplay={{
-          delay: 5000,
-        }}
-        slidesPerView={1}
-        spaceBetween={10}
-      
-        breakpoints={breakpoints}
-        modules={[Scrollbar, Autoplay]}
-      >
-        {moviesData.map((movie) => (
-          <SwiperSlide key={movie.id}>
-            <MovieCard movie={movie} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <MovieSwiper moviesData={moviesData} />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import PosterPlaceholder from "../assets/poster_placeholder.png";
 import { VideosAndPhotos } from "../components/VideosAndPhotos";
 import Cast from "../components/Cast";
 import Review from "../components/Review";
+import Recommendations from "../components/Recommendations";
 
 const MovieDetails = () => {
   const params = useParams();
@@ -21,10 +22,10 @@ const MovieDetails = () => {
         style={{
           backgroundImage: `url(${getBackdropUrl(movie.backdrop_path)})`,
         }}
-        className="bg-cover bg-no-repeat h-full"
+        className="bg-cover bg-no-repeat h-ful bg-fixed"
       >
         <div className="bg-gradient-to-b from-transparent	to-neutral-900 text-white h-full">
-          <div className="w-5/6 mx-auto py-10">
+          <div className="md:w-5/6 mx-auto py-10">
             <div className="py-6 flex flex-col md:flex-row items-center gap-5 ">
               <div className="flex flex-col gap-3">
                 <div className="text-3xl font-semibold font-dosis">
@@ -50,10 +51,10 @@ const MovieDetails = () => {
                 <span className="text-xs">{movie.vote_count} users voted</span>
               </div>
             </div>
-            <div className="flex flex-col xl:flex-row gap-2  lg:h-[450px]">
-              <div className="">
+            <div className="flex flex-col items-center  xl:flex-row gap-2">
+              <div className="flex ">
                 <img
-                  className="h-full w-full "
+                  className="h-full w-full object-cover "
                   src={
                     movie.poster_path
                       ? getPosterUrl(movie.poster_path)
@@ -62,7 +63,7 @@ const MovieDetails = () => {
                   alt=""
                 />
               </div>
-              <div>
+              <div className="w-full h-full">
                 <VideosAndPhotos movieId={params.id} />
               </div>
             </div>
@@ -80,7 +81,9 @@ const MovieDetails = () => {
             <div>{movie.overview}</div>
             <Cast movieId={params.id} />
             <Review movieId={params.id} />
+         
           </div>
+          <Recommendations movieId={params.id} />
         </div>
       </div>
     </section>

@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { getReviews } from "../api";
 import RatingCircle from "./RatingCircle";
 import { BiConfused } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Review = ({ movieId }) => {
   const [reviews, setReviews] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     getReviews(movieId).then((response) => setReviews(response.results));
   }, [movieId]);
   return (
-    <div>
+    <div className="">
       <div className="text-2xl text-semibold py-5">User Reviews</div>
       <div className="flex flex-col lg:flex-row gap-2">
         {reviews?.slice(0, 2).map((review) => (
@@ -18,7 +19,7 @@ const Review = ({ movieId }) => {
             className="flex bg-slate-600 bg-opacity-40 gap-3  rounded-md "
           >
             <div className="w-1/6 flex flex-col items-center justify-between p-2 bg-neutral rounded-md rounded-r-none ">
-              <div className="font-semibold">{review.author}</div>
+              <div className="font-semibold text-center">{review.author}</div>
               <div className="w-20 h-20">
                 {review.author_details.rating ? (
                   <RatingCircle rating={review.author_details.rating} />
@@ -33,7 +34,12 @@ const Review = ({ movieId }) => {
               {review.content.length > 500 && (
                 <>
                   <span>... </span>
-                  <button className="border p-1 rounded-md " onClick={() => {}}>
+                  <button
+                    className="text-neutral-400 "
+                    onClick={() => {
+                      navigate(`/reviews/${movieId}`);
+                    }}
+                  >
                     Read More
                   </button>
                 </>

@@ -22,9 +22,8 @@ export const VideosAndPhotos = ({ movieId }) => {
   }, [movieId]);
 
   return (
-    <div className="flex flex-col xl:flex-row h-[450px] gap-1 ">
-      <div className="relative pt-[56.25%] xl:w-[30vw]">
-      
+    <div className="flex flex-col xl:flex-row gap-1 items-center">
+      <div className="relative aspect-video h-full w-full">
         {trailers && (
           <ReactPlayer
             style={{ position: "absolute", top: 0, left: 0 }}
@@ -56,10 +55,13 @@ export const VideosAndPhotos = ({ movieId }) => {
             navigate(`/photos/${movieId}`);
           }}
         >
-          <span className="text-4xl">
+          <span className="text-xl">
             <IoMdPhotos />
           </span>
-          <span>{images?.backdrops?.length} photos</span>
+          <div className="flex gap-2">
+            <span>{images?.backdrops?.length}</span>
+            <span>photos</span>
+          </div>
         </div>
       </div>
     </div>
