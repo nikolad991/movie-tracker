@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getTrendingMovies } from "../api";
 import MovieSwiper from "./MovieSwiper";
+import { useGetTrendingMoviesQuery } from "../redux/apiSlice";
 const Trending = () => {
   const [period, setPeriod] = useState("week");
-  const [moviesData, setMoviesData] = useState([]);
-  useEffect(() => {
-    getTrendingMovies(period).then((response) =>
-      setMoviesData(response.results)
-    );
-  }, [period]);
+  const {
+    data: moviesData,
+    error,
+    isLoading,
+  } = useGetTrendingMoviesQuery(period);
+
   const handlePeriodChange = (e) => {
     setPeriod(e.target.name);
   };
@@ -18,6 +19,7 @@ const Trending = () => {
         <h1 className="text-3xl font-dosis py-4 text-whwite">
           Trending Movies
         </h1>
+        {isLoading && <>LOADING....</>}
         <div className="my-4 flex justify-around border border-green-500 font-semibold rounded-3xl w-fit [&>button]:rounded-3xl [&>button]:px-4 [&>button]:transition-all [&>button]:duration-1000 [&>button]:w-1/2  ">
           <button
             name="day"
@@ -39,7 +41,7 @@ const Trending = () => {
           </button>
         </div>
       </div>
-      <MovieSwiper moviesData={moviesData} />
+      {moviesData && <MovieSwiper moviesData={moviesData?.results} />}
     </div>
   );
 };

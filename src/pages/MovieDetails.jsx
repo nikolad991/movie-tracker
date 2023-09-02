@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getBackdropUrl, getMovieById, getPosterUrl } from "../api";
-import ReactPlayer from "react-player";
 import RatingCircle from "../components/RatingCircle";
 import PosterPlaceholder from "../assets/poster_placeholder.png";
 import { VideosAndPhotos } from "../components/VideosAndPhotos";
@@ -14,7 +13,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   useEffect(() => {
     getMovieById(params.id).then((response) => setMovie(response));
-  }, []);
+  }, [params.id]);
 
   return (
     <section className="min-h-screen">
