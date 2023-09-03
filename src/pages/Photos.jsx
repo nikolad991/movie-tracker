@@ -5,27 +5,26 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
+import { useGetImagesQuery } from "../redux/apiSlice";
 const Photos = () => {
-  const [images, setImages] = useState({});
   const params = useParams();
-  const [imageIndex, setImageIndex] = useState(3);
-  useEffect(() => {
-    getImages(params.id).then((response) => setImages(response));
-  }, [params.id]);
+  const [imageIndex, setImageIndex] = useState(0);
+
+  const { data: photosData, error, isLoading } = useGetImagesQuery(params.id);
   return (
-    images.backdrops && (
+    photosData?.backdrops && (
       <div
-        className="h-screen bg-cover bg-blend-overlay bg-zinc-900 transition-all duration-1000"
+        className="h-screen bg-cover bg-blend-overlay bg-zinc-900 transition-all duration-1000 pt-10"
         style={{
           backgroundImage: `url(${getBackdropUrl(
-            images?.backdrops[imageIndex]?.file_path
+            photosData?.backdrops[imageIndex]?.file_path
           )})`,
         }}
       >
         <div className="h-1/4 md:h-1/2 lg:h-2/3 aspect-[16/9] mx-auto">
           <img
             className="h-full w-full object-cover "
-            src={getBackdropUrl(images?.backdrops[imageIndex]?.file_path)}
+            src={getBackdropUrl(photosData?.backdrops[imageIndex]?.file_path)}
             alt=""
           />
         </div>
@@ -37,10 +36,10 @@ const Photos = () => {
               hide: false,
             }}
           >
-            {images?.backdrops?.map((photo, index) => (
+            {photosData?.backdrops?.map((photo, index) => (
               <SwiperSlide key={index} className="py-7">
                 <div
-                  className="h-20 aspect-[16/9] "
+                  className={`h-20 p-1 rounded-md aspect-[16/9] transition-all duration-600 ${index===imageIndex?" bg-gradient-to-b from-red-400 to-red-700 ":""}`}
                   onClick={() => setImageIndex(index)}
                 >
                   <img
