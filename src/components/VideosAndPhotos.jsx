@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { getImages, getVideos, getYoutubeUrl } from "../api";
+import {getYoutubeUrl } from "../utils";
 import ReactPlayer from "react-player";
 import { MdVideoLibrary } from "react-icons/md";
 import { IoMdPhotos } from "react-icons/io";
@@ -11,11 +10,7 @@ import {
 } from "../redux/apiSlice";
 import { InfinitySpin } from "react-loader-spinner";
 export const VideosAndPhotos = ({ movieId }) => {
-  const [images, setImages] = useState({});
   const navigate = useNavigate();
-  useEffect(() => {
-    getImages(movieId).then((response) => setImages(response));
-  }, [movieId]);
   const { data: videosData, error, isLoading } = useGetVideosQuery(movieId);
   const {
     data: trailersData,

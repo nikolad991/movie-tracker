@@ -1,6 +1,5 @@
 import React from "react";
-import { getPosterUrl } from "../api";
-import { BsPlayFill } from "react-icons/bs";
+import { getPosterUrl } from "../utils";
 import { Link } from "react-router-dom";
 import RatingCircle from "./RatingCircle";
 import PosterPlaceholder from "../assets/poster_placeholder.png";
@@ -33,12 +32,6 @@ const MovieCard = ({ movie }) => {
           {movie?.release_date?.slice(0, 4)}
         </span>
       </div>
-      {/* <div className="flex items-center justify-center gap-1 py-2">
-        <span>
-          <BsPlayFill />
-        </span>
-        <span>Trailer</span>
-      </div> */}
     </div>
   );
 };

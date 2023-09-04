@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { getPopularMovies, getTrendingMovies, getBackdropUrl } from "../api";
+import { useState } from "react";
+import { getBackdropUrl } from "../utils";
 import { useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { useGetPopularMoviesQuery } from "../redux/apiSlice";
 import { InfinitySpin } from "react-loader-spinner";
-import { skipToken } from "@reduxjs/toolkit/dist/query";
+
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();

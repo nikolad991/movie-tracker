@@ -1,18 +1,15 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getBackdropUrl, getVideos, getYoutubeUrl } from "../api";
+import { getBackdropUrl, getYoutubeUrl } from "../utils";
 import ReactPlayer from "react-player";
-import { useGetSingleMovieQuery } from "../redux/apiSlice";
+import { useGetSingleMovieQuery, useGetVideosQuery } from "../redux/apiSlice";
+import { InfinitySpin } from "react-loader-spinner";
 
 const Videos = () => {
   const params = useParams();
-  const [videos, setVideos] = useState({});
-  const [currentVideo, setCurrentVideo] = useState(0);
 
-  useEffect(() => {
-    getVideos(params.id).then((response) => setVideos(response));
-  }, [params.id]);
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const { data: videos, error, isLoading } = useGetVideosQuery(params.id);
   const {
     data: movieData,
     movieError,
@@ -25,8 +22,13 @@ const Videos = () => {
         backgroundImage: `url(${getBackdropUrl(movieData?.backdrop_path)})`,
       }}
     >
+      {isLoading && (
+        <div className="absolute top-1/2 left-1/2 z-50">
+          <InfinitySpin color="#000000" />
+        </div>
+      )}
       <div className="flex py-10 md:w-5/6 lg:h-[600px] gap-5 flex-col lg:flex-row justify-center items-center drop-shadow-2xl bg-neutral-500 rounded-md bg-opacity-70 ">
-        {videos.results && (
+        {videos?.results && (
           <div className="p-3 lg:px-5 flex flex-col justify-between gap-5 w-full lg:w-1/2 h-full">
             <div className="relative pt-[56.25%]">
               <ReactPlayer

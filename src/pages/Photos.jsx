@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getBackdropUrl, getImages } from "../api";
+import { getBackdropUrl } from "../utils";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper/modules";
 import "swiper/css";
@@ -39,7 +39,11 @@ const Photos = () => {
             {photosData?.backdrops?.map((photo, index) => (
               <SwiperSlide key={index} className="py-7">
                 <div
-                  className={`h-20 p-1 rounded-md aspect-[16/9] transition-all duration-600 ${index===imageIndex?" bg-gradient-to-b from-red-400 to-red-700 ":""}`}
+                  className={`h-20 p-1 rounded-md aspect-[16/9] transition-all duration-600 ${
+                    index === imageIndex
+                      ? " bg-gradient-to-b from-red-400 to-red-700 "
+                      : ""
+                  }`}
                   onClick={() => setImageIndex(index)}
                 >
                   <img

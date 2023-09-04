@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getBackdropUrl, getMovieById, getPosterUrl } from "../api";
+import { getBackdropUrl, getPosterUrl } from "../utils";
 import RatingCircle from "../components/RatingCircle";
 import PosterPlaceholder from "../assets/poster_placeholder.png";
 import { VideosAndPhotos } from "../components/VideosAndPhotos";

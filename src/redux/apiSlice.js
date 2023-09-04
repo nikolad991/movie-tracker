@@ -32,6 +32,19 @@ export const moviesApi = createApi({
     getImages: builder.query({
       query: (movieId) => `/movie/${movieId}/images`,
     }),
+    getCast: builder.query({
+      query: (movieId) => `movie/${movieId}/credits?language=en-US`,
+    }),
+    getRecommendations: builder.query({
+      query: (movieId) => `movie/${movieId}/recommendations?language=en-US`,
+    }),
+    getReviews: builder.query({
+      query: (movieId) => `movie/${movieId}/reviews?language=en-US`,
+    }),
+    getMoviesByName: builder.query({
+      query: ({name, page}) =>
+        `search/movie?query=${name}&include_adult=false&language=en-US&page=${page}`,
+    }),
   }),
 });
 
@@ -42,4 +55,8 @@ export const {
   useGetVideosQuery,
   useGetTrailersQuery,
   useGetImagesQuery,
+  useGetCastQuery,
+  useGetRecommendationsQuery,
+  useGetReviewsQuery,
+  useGetMoviesByNameQuery,
 } = moviesApi;
