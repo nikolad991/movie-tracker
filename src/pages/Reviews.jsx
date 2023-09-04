@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getReviews } from "../api";
 import RatingCircle from "../components/RatingCircle";
 import { BiConfused } from "react-icons/bi";
+import { useGetReviewsQuery } from "../redux/apiSlice";
+import { InfinitySpin } from "react-loader-spinner";
 const Reviews = () => {
   const params = useParams();
-  const [reviews, setReviews] = useState([]);
-  useEffect(() => {
-    getReviews(params.id).then((response) => setReviews(response.results));
-  }, [params.id]);
-
+  const { data: reviewsData, error, isLoading } = useGetReviewsQuery(params.id);
   return (
     <div className=" bg-white">
       <div className="w-5/6 mx-auto">
         <div className="text-2xl text-semibold py-5">User Reviews</div>
+        {isLoading && <InfinitySpin color="#000000" />}
         <div className="flex flex-col  gap-10">
-          {reviews?.map((review) => (
+          {reviewsData?.results.map((review) => (
             <div
               key={review.id}
               className="flex flex-col bg-slate-600 bg-opacity-40 gap-3  rounded-md "
@@ -30,9 +27,7 @@ const Reviews = () => {
                   )}
                 </div>
               </div>
-              <div className=" py-2 px-4 text-justify">
-                {review.content}
-              </div>
+              <div className=" py-2 px-4 text-justify">{review.content}</div>
             </div>
           ))}
         </div>

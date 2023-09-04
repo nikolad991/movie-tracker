@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { getReviews } from "../api";
 import RatingCircle from "./RatingCircle";
 import { BiConfused } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import { useGetReviewsQuery } from "../redux/apiSlice";
 const Review = ({ movieId }) => {
-  const [reviews, setReviews] = useState([]);
+  const { data: reviewsData, error, isLoading } = useGetReviewsQuery(movieId);
   const navigate = useNavigate();
-  useEffect(() => {
-    getReviews(movieId).then((response) => setReviews(response.results));
-  }, [movieId]);
+
   return (
     <div className="">
       <div className="text-2xl text-semibold py-5">User Reviews</div>
       <div className="flex flex-col lg:flex-row gap-2">
-        {reviews?.slice(0, 2).map((review) => (
+        {reviewsData?.results?.slice(0, 2).map((review) => (
           <div
             key={review.id}
             className="flex bg-slate-600 bg-opacity-40 gap-3  rounded-md "
@@ -49,7 +46,9 @@ const Review = ({ movieId }) => {
         ))}
       </div>
       <div className="text-lg text-semibold my-5 py-3 px-2 border w-fit hover:bg-white hover:text-black">
-        <Link to={`/reviews/${movieId}`}>See All {reviews.length} Reviews</Link>
+        <Link to={`/reviews/${movieId}`}>
+          See All {reviewsData?.results?.length} Reviews
+        </Link>
       </div>
     </div>
   );

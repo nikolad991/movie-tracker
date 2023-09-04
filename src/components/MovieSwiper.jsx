@@ -34,7 +34,7 @@ const MovieSwiper = ({ moviesData }) => {
       autoplay={{
         delay: 5000,
       }}
-      slidesPerView={1}
+      slidesPerView={2}
       spaceBetween={10}
       breakpoints={breakpoints}
       modules={[Scrollbar, Autoplay]}
