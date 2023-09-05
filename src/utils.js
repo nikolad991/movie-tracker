@@ -2,7 +2,7 @@ const getPosterUrl = (poster_path) => {
   return `https://image.tmdb.org/t/p/w500/${poster_path}`;
 };
 const getBackdropUrl = (backdrop_path) => {
-  return `https://image.tmdb.org/t/p/w780/${backdrop_path}`;
+  return `https://image.tmdb.org/t/p/w1280/${backdrop_path}`;
 };
 
 const getYoutubeUrl = (key) => {

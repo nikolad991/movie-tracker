@@ -1,23 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-    width: 10px;
-}
+  width: 10px;
   
+}
+
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
+  @apply bg-neutral-900;
+  border-radius: 16px;
   
+}
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  @apply bg-neutral-700;
+  border-radius: 16px;
 }
-  
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }

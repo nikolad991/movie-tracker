@@ -14,7 +14,7 @@ const Trending = () => {
     setPeriod(e.target.name);
   };
   return (
-    <div className="px-5 py-10 w-5/6 mx-auto">
+    <div className="px-2 py-10 w-5/6 mx-auto">
       <div>
         <h1 className="text-3xl font-dosis py-4 text-whwite">
           Trending Movies

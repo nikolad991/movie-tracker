@@ -5,7 +5,7 @@ import { InfinitySpin } from "react-loader-spinner";
 const Recommendations = ({ movieId }) => {
   const { data, error, isLoading } = useGetRecommendationsQuery(movieId);
   return (
-    <div className="px-5 py-10 w-5/6 mx-auto">
+    <div className="px-2 py-10 w-5/6 mx-auto">
       <h1 className="text-3xl font-dosis py-4 text-whwite">
         Recommended Movies
       </h1>
