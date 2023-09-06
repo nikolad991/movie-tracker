@@ -11,6 +11,7 @@ import Videos from "./pages/Videos.jsx";
 import Reviews from "./pages/Reviews.jsx";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
+import Watchlist from "./pages/Watchlist.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/reviews/:id",
         element: <Reviews />,
+      },
+      {
+        path: "/watchlist",
+        element: <Watchlist />,
       },
     ],
   },
