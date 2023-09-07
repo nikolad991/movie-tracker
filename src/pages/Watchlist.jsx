@@ -1,26 +1,22 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import MovieCard from "../components/MovieCard";
-import {AiOutlineEye} from "react-icons/ai";
+
+import WatchlistItem from "../components/WatchlistItem";
 const Watchlist = () => {
   const watchlist = useSelector((state) => state.watchlist);
+
   return (
-    <div className="w-5/6 mx-auto">
-       {/* TODO  */}
-      {watchlist.map((watchlist_item) => (
-        <div className="flex gap-3 items-center" key={watchlist_item.movie.id}>
-          <MovieCard movie={watchlist_item.movie} />
-          <div>I have watched this movie</div>
-          <AiOutlineEye size={45}  />
-          <AiOutlineEye size={45} color="green" />
-
-         
-          <textarea className="h-full" name="" id="" cols="30" rows="10"></textarea>
-          <button>Add comment</button>
-
-
-        </div>
-      ))}
+    <div className=" flex flex-col gap-3 items-center  w-5/6 mx-auto">
+      {/* TODO  */}
+      {watchlist.length > 0 ? (
+        watchlist?.map((watchlist_item) => (
+          <WatchlistItem
+            key={watchlist_item.movie.id}
+            watchlist_item={watchlist_item}
+          />
+        ))
+      ) : (
+        <div>Add some movies to your watchlist to start</div>
+      )}
     </div>
   );
 };
