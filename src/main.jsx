@@ -12,11 +12,13 @@ import Reviews from "./pages/Reviews.jsx";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 import Watchlist from "./pages/Watchlist.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
       {

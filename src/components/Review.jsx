@@ -7,15 +7,15 @@ const Review = ({ movieId }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="">
+    <div className="p-1">
       <div className="text-2xl text-semibold py-5">User Reviews</div>
       <div className="flex flex-col lg:flex-row gap-2">
         {reviewsData?.results?.slice(0, 2).map((review) => (
           <div
             key={review.id}
-            className="flex bg-slate-600 bg-opacity-40 gap-3  rounded-md "
+            className="flex  bg-slate-600 bg-opacity-40 gap-3  rounded-md "
           >
-            <div className="w-1/6 flex flex-col items-center justify-between p-2 bg-neutral rounded-md rounded-r-none ">
+            <div className="w-2/6 md:w-1/6 flex flex-col items-center justify-around p-2 bg-neutral rounded-md rounded-r-none ">
               <div className="font-semibold text-center">{review.author}</div>
               <div className="w-20 h-20">
                 {review.author_details.rating ? (
@@ -26,7 +26,7 @@ const Review = ({ movieId }) => {
               </div>
             </div>
 
-            <div className="w-5/6 text-sm py-2 px-4 text-justify">
+            <div className="w-4/6 md:w-5/6 text-sm py-2 px-4 text-justify">
               {review.content.slice(0, 500)}
               {review.content.length > 500 && (
                 <>

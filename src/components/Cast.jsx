@@ -28,7 +28,7 @@ const breakpoints = {
 const Cast = ({ movieId }) => {
   const { data, error, isLoading } = useGetCastQuery(movieId);
   return (
-    <section className="my-5">
+    <section className="my-5 px-1">
       <div className="my-3 flex gap-1 ">
         <span>Director:</span>
         <span className="font-semibold">

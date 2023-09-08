@@ -61,8 +61,8 @@ const MovieDetails = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col items-center  xl:flex-row gap-2">
-                <div className="flex ">
+              <div className="flex flex-col items-center  xl:flex-row gap-1   xl:h-[400px] 2xl:h-[500px]">
+                <div className="flex h-[500px] md:h-[600px]  lg:h-full aspect-[2/3] ">
                   <img
                     className="h-full w-full object-cover "
                     src={
@@ -73,12 +73,12 @@ const MovieDetails = () => {
                     alt=""
                   />
                 </div>
-                <div className="w-full h-full">
+                <div className="h-full w-full ">
                   <VideosAndPhotos movieId={params.id} />
                 </div>
               </div>
 
-              <div className="py-5 flex gap-3 text-white">
+              <div className="py-5 px-2 flex gap-3 text-white">
                 {movieData?.genres?.map((genre) => (
                   <div
                     className="border rounded-3xl px-2 py-1 text-sm "
@@ -88,7 +88,7 @@ const MovieDetails = () => {
                   </div>
                 ))}
               </div>
-              <div>{movieData?.overview}</div>
+              <div className="p-1">{movieData?.overview}</div>
               <Cast movieId={params.id} />
               <Review movieId={params.id} />
             </div>

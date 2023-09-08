@@ -12,8 +12,8 @@ const Videos = () => {
   const { data: videos, error, isLoading } = useGetVideosQuery(params.id);
   const {
     data: movieData,
-    movieError,
-    movieIsLoading,
+    error: movieError,
+    isLoading: movieIsLoading,
   } = useGetSingleMovieQuery(params.id);
   return (
     <div

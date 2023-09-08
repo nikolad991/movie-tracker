@@ -41,7 +41,9 @@ const MovieSwiper = ({ moviesData }) => {
     >
       {moviesData.map((movie) => (
         <SwiperSlide key={movie.id}>
-          <MovieCard movie={movie} />
+          <div className="mb-12">
+            <MovieCard movie={movie} />
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>

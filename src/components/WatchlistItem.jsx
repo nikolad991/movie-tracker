@@ -10,7 +10,7 @@ const WatchlistItem = ({ watchlist_item }) => {
   const [myComment, setMyComment] = useState("");
   const dispatch = useDispatch();
   return (
-    <div className="relative w-full flex  border">
+    <div className="relative w-full flex  items-center bg-neutral-600 rounded-md">
       <MovieCard movie={watchlist_item.movie} />
 
       {watchlist_item.watched ? (
@@ -40,12 +40,12 @@ const WatchlistItem = ({ watchlist_item }) => {
         </button>
       )}
       {watchlist_item.myComment.length > 0 && (
-        <div className="border">
-          <div className="w-20 h-20">
+        <>
+          <div className="w-10 h-10">
             <RatingCircle rating={watchlist_item.myRating} />
           </div>
-          <div>{watchlist_item.myComment}</div>
-        </div>
+          <div className="p-4 bg-neutral-700">{watchlist_item.myComment}</div>
+        </>
       )}
       {showAddComment && (
         <div className="flex flex-col bg-neutral-400 p-2 rounded-md">

@@ -21,7 +21,7 @@ const SearchBar = () => {
     setSearchQuery(e.target.value.trim());
   };
   return (
-    <div className="px-1 lg:w-1/2 h-10 rounded-3xl bg-neutral-900 ">
+    <div className="px-1 w-11/12 lg:w-1/2 h-10 rounded-3xl bg-neutral-900 ">
       <form className="flex justify-between py-2 " onSubmit={handleSearch}>
         <input
           onChange={handleInputChange}
@@ -35,7 +35,7 @@ const SearchBar = () => {
         </button>
       </form>
       {data?.results.length > 0 && (
-        <div className="flex flex-col bg-neutral-900 rounded-lg h-[287px] overflow-scroll overflow-x-hidden my-2 p-5 ">
+        <div className="flex flex-col bg-neutral-900 rounded-lg h-[30vh] overflow-scroll overflow-x-hidden my-2 p-5 ">
           <Link to={`/search/${searchQuery}`}>
             <div className="text-neutral-400 bg-neutral-800 p-2 text-center transition duration-500 hover:bg-neutral-700">
               See all {data.total_results} results
@@ -61,7 +61,7 @@ const SearchBar = () => {
               </div>
               <div className="flex items-center justify-between w-full p-2">
                 <div className="flex flex-col">
-                  <div className="text-white text-lg">{movie.title}</div>
+                  <div className="text-white text-xs lg:text-lg">{movie.title}</div>
                   <div className=" text-neutral-400">
                     {movie.release_date.slice(0, 4)}
                   </div>
