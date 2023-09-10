@@ -17,7 +17,7 @@ const Videos = () => {
   } = useGetSingleMovieQuery(params.id);
   return (
     <div
-      className="min-h-screen  flex flex-col items-center justify-center text-white bg-cover bg-no-repeat "
+      className="min-h-screen  flex flex-col items-center justify-center text-white bg-cover bg-no-repeat bg-neutral-800 bg-blend-overlay "
       style={{
         backgroundImage: `url(${getBackdropUrl(movieData?.backdrop_path)})`,
       }}

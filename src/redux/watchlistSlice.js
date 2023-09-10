@@ -8,7 +8,9 @@ const watchlistSlice = createSlice({
   reducers: {
     addMovie: (state, action) => {
       const { movie } = action.payload;
-      state.push({ movie, watched: false, myRating: null, myComment: "" });
+      const index = state.findIndex((el) => el.movie.id === movie.id);
+      if (index === -1)
+        state.push({ movie, watched: false, myRating: null, myComment: "" });
     },
     setAsWatched: (state, action) => {
       const { id } = action.payload;

@@ -6,6 +6,26 @@ import { Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import { useGetImagesQuery } from "../redux/apiSlice";
+const breakpoints = {
+  640: {
+    slidesPerView: 4,
+    spaceBetween: 5,
+  },
+
+  1024: {
+    slidesPerView: 8,
+    spaceBetween: 10,
+  },
+
+  1536: {
+    slidesPerView: 10,
+    spaceBetween: 15,
+  },
+  1875: {
+    slidesPerView: 12,
+    spaceBetween: 20,
+  },
+};
 const Photos = () => {
   const params = useParams();
   const [imageIndex, setImageIndex] = useState(0);
@@ -21,7 +41,7 @@ const Photos = () => {
           )})`,
         }}
       >
-        <div className="h-1/4 md:h-1/2 lg:h-2/3 aspect-[16/9] mx-auto">
+        <div className="h-fit md:h-1/2 lg:h-2/3 aspect-[16/9] mx-auto">
           <img
             className="h-full w-full object-cover "
             src={getBackdropUrl(photosData?.backdrops[imageIndex]?.file_path)}
@@ -31,7 +51,8 @@ const Photos = () => {
         <div className="flex flex-wrap">
           <Swiper
             modules={[Scrollbar]}
-            slidesPerView={12}
+            slidesPerView={3}
+            breakpoints={breakpoints}
             scrollbar={{
               hide: false,
             }}

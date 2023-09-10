@@ -5,7 +5,7 @@ const Watchlist = () => {
   const watchlist = useSelector((state) => state.watchlist);
 
   return (
-    <div className=" flex flex-col gap-3 items-center  w-5/6 mx-auto">
+    <div className=" flex flex-col gap-3 items-center  w-5/6 mx-auto py-10">
       {/* TODO  */}
       {watchlist.length > 0 ? (
         watchlist?.map((watchlist_item) => (

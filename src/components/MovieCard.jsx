@@ -6,7 +6,7 @@ import PosterPlaceholder from "../assets/poster_placeholder.png";
 import { MdPlaylistAdd } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { addMovie } from "../redux/watchlistSlice";
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, showAddWatchlistButton = true }) => {
   const dispatch = useDispatch();
   return (
     <div
@@ -14,12 +14,14 @@ const MovieCard = ({ movie }) => {
       key={movie.id}
     >
       <div className="relative rounded-md">
-        <div
-          className="absolute top-0 l-0 text-3xl bg-neutral-800 bg-opacity-70 p-1 rounded-br-lg cursor-pointer z-50 hover:bg-neutral-500"
-          onClick={() => dispatch(addMovie({ movie }))}
-        >
-          <MdPlaylistAdd />
-        </div>
+        {showAddWatchlistButton && (
+          <div
+            className="absolute top-0 l-0 text-3xl bg-neutral-800 bg-opacity-70 p-1 rounded-br-lg cursor-pointer z-50 hover:bg-neutral-500"
+            onClick={() => dispatch(addMovie({ movie }))}
+          >
+            <MdPlaylistAdd />
+          </div>
+        )}
 
         <img
           className="rounded-md transition-all duration-500 hover:opacity-60 "
@@ -37,7 +39,9 @@ const MovieCard = ({ movie }) => {
       </div>
       <div className=" px-4 pb-5 mt-6 flex justify-between items-center  uppercase font-semibold  ">
         <Link to={`/movie/${movie.id}`}>
-          <span className="text-yellow-600 hover:text-yellow-800">{movie.title}</span>
+          <span className="text-yellow-600 hover:text-yellow-800">
+            {movie.title}
+          </span>
         </Link>
         <span className="text-xs px-2 ">
           {movie?.release_date?.slice(0, 4)}

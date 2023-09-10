@@ -10,7 +10,7 @@ function App() {
     localStorage.setItem("movie-watchlist", JSON.stringify(watchlist));
   }, [watchlist]);
   return (
-    <div className="bg-neutral-700 min-h-screen shadow-transparent">
+    <div className="bg-home min-h-screen shadow-transparent">
       <NavBar />
       <Outlet />
       <Footer />

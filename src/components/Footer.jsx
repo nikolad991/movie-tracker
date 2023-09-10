@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const watchlist = useSelector((state) => state.watchlist);
   return (
-    <div className="bg-neutral-800 text-white  p-4 w-full flex flex-col gap-3 items-center justify-center">
+    <div className="bg-neutral-800 bg-opacity-50 text-white  p-4 w-full flex flex-col gap-3 items-center justify-center">
       <div className="bg-gradient-to-r from-neutral-600 to-yellow-800 rounded-md p-5">
         <div className="flex items-center w-fit font-bold text-black text-2xl font-dosis border-b-4 border-t-4 border-dashed border-black bg-yellow-700 p-1">
           <BiSolidMoviePlay /> <span>MOVIE_DB</span>
