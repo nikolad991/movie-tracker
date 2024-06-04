@@ -1,11 +1,11 @@
 import React from "react";
 import Trending from "../components/Trending";
-import Search from "../components/Search";
+import HeroSlider from "../components/HeroSlider";
 const Home = () => {
   return (
     <div className="py-20">
      
-      <Search />
+      <HeroSlider />
       <Trending />
     </div>
   );

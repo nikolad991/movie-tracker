@@ -16,7 +16,7 @@ const MovieCard = ({ movie, showAddWatchlistButton = true }) => {
       <div className="relative rounded-md">
         {showAddWatchlistButton && (
           <div
-            className="absolute top-0 l-0 text-3xl bg-neutral-800 bg-opacity-70 p-1 rounded-br-lg cursor-pointer z-50 hover:bg-neutral-500"
+            className="absolute top-0 l-0 text-3xl bg-neutral-800 bg-opacity-70 p-1 rounded-br-lg cursor-pointer z-40 hover:bg-neutral-500"
             onClick={() => dispatch(addMovie({ movie }))}
           >
             <MdPlaylistAdd />

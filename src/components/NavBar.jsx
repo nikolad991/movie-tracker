@@ -2,6 +2,7 @@ import React from "react";
 import { BiSolidMoviePlay } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import SearchBar from "./SearchBar";
 const NavBar = () => {
   const watchlist = useSelector((state) => state.watchlist);
   return (
@@ -12,6 +13,7 @@ const NavBar = () => {
             <BiSolidMoviePlay /> <span>MOVIE_DB</span>
           </div>
         </Link>
+        <SearchBar/>
         <NavLink to="/watchlist">
           <div className="text-white text-lg">
             My watchlist({watchlist.length})
