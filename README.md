@@ -31,7 +31,7 @@ Movie_DB is a web application that allows users to see trending movies, search f
  
  
  
-###Usage
+### Usage
 
 To start using the Movie_DB:
 Open your browser and go to http://localhost:5173/ 
@@ -44,7 +44,7 @@ Use the application to browse trending movies, search for specific titles, view 
 - Watchlist: Add movies to your personal watchlist for easy tracking.
 - TMDB Integration: Utilizes [TMDB](https://www.themoviedb.org/) API to fetch and display the latest movie data.
 
-###Screenshots
+### Screenshots
 ![Movie_DB_sc1](https://res.cloudinary.com/dq4l491mz/image/upload/v1717626351/screenshots/sc1_y9zk4x.jpg)
 
 ![Movie_DB_sc2](https://res.cloudinary.com/dq4l491mz/image/upload/v1717626351/screenshots/sc2_adfrba.jpg)
@@ -52,6 +52,6 @@ Use the application to browse trending movies, search for specific titles, view 
 ![Movie_DB_sc3](https://res.cloudinary.com/dq4l491mz/image/upload/v1717626352/screenshots/sc3_e9fnsb.jpg)
 
 
-###Contact
+### Contact
 If you have any questions or feedback, feel free to contact the project maintainer:
 GitHub: [nikolad991](https://github.com/nikolad991)
