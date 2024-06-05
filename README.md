@@ -37,7 +37,8 @@ To start using the Movie_DB:
 Open your browser and go to http://localhost:5173/ 
 OR visit the hosted version at [Netlify](https://nmovie-db.netlify.app/).
 Use the application to browse trending movies, search for specific titles, view detailed information about each movie, and add movies to your watchlist.
-###Features
+
+### Features
 - Trending Movies: See a list of currently trending movies.
 - Movie Search: Search for movies by title.
 - Movie Details: View detailed information about each movie, including ratings, synopsis, cast, and more.
