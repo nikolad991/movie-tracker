@@ -19,8 +19,7 @@ Movie_DB is a web application that allows users to see trending movies, search f
 1. Clone the repository:
    ```sh
    git clone https://github.com/nikolad991/movie-tracker.git
-   cd movie-tracker
-
+   cd movie-tracker   
  ```
 2. Install dependencies:
    ```sh

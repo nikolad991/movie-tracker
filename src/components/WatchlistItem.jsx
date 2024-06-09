@@ -14,7 +14,7 @@ const WatchlistItem = ({ watchlist_item }) => {
     <div className="relative w-full flex  items-center  bg-neutral-600 rounded-md overflow-hidden">
       <MovieCard movie={watchlist_item.movie} showAddWatchlistButton={false} />
 
-      <div className="flex px-5 w-f justify-between items-center gap-2">
+      <div className="flex px-5 justify-between items-center gap-2">
         {watchlist_item.watched ? (
           <div className="flex">
             <div className="flex items-center bg-slate-500 p-4 rounded-md bg-opacity-50 w-52 justify-between h-fit">

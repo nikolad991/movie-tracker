@@ -3,6 +3,8 @@ import NavBar from "./components/NavBar";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import Footer from "./components/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { watchlist } = useSelector((state) => state);
@@ -14,6 +16,7 @@ function App() {
       <NavBar />
       <Outlet />
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

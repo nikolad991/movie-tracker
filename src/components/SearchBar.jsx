@@ -29,7 +29,7 @@ const SearchBar = () => {
   };
   const inputRef = useRef(null);
   return (
-    <div className="px-1 w-11/12 lg:w-1/2 h-10 rounded-3xl bg-neutral-900 z-50 ">
+    <div className="px-1 w-full md:w-11/12 lg:w-1/2 h-10 rounded-3xl bg-neutral-900 z-50 ">
       <form className="flex justify-between py-2 " onSubmit={handleSearch}>
         <input
           ref={inputRef}

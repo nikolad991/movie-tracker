@@ -6,6 +6,7 @@ import PosterPlaceholder from "../assets/poster_placeholder.png";
 import { MdPlaylistAdd } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { addMovie } from "../redux/watchlistSlice";
+import { toast } from "react-toastify";
 const MovieCard = ({ movie, showAddWatchlistButton = true }) => {
   const dispatch = useDispatch();
   return (
@@ -17,7 +18,13 @@ const MovieCard = ({ movie, showAddWatchlistButton = true }) => {
         {showAddWatchlistButton && (
           <div
             className="absolute top-0 l-0 text-3xl bg-neutral-800 bg-opacity-70 p-1 rounded-br-lg cursor-pointer z-40 hover:bg-neutral-500"
-            onClick={() => dispatch(addMovie({ movie }))}
+            onClick={() => {
+              toast.success(`${movie.title} added to watchlist.`, {
+                theme: "colored",
+                style: { background: "#ca8a04" },
+              });
+              dispatch(addMovie({ movie }));
+            }}
           >
             <MdPlaylistAdd />
           </div>
