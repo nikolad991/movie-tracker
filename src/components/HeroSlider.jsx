@@ -8,8 +8,9 @@ import MovieCard from "./MovieCard";
 
 const Search = () => {
   const { data, error, isLoading } = useGetPopularMoviesQuery();
+  console.log(data);
   return (
-    <section className="w-5/6 flex  mx-auto  h-[70vh]  rounded-lg ">
+    <section className="w-5/6 flex  mx-auto  h-[70vh]  rounded-lg overflow-hidden ">
       <Swiper
         style={{
           "--swiper-pagination-color": "#ca8a04",
